@@ -16,17 +16,13 @@ block content
       label(for="medium") Artistic Media: 
       p
       select(id='medium', name='medium', type='medium')
-        option(value="acrylic") Acrylic
-        option(value="oil") Oil 
-        option(value='chalk') Chalk 
-        option(value='pastel') Pastel 
-        option(value='watercolor') Watercolor 
-        option(value='ink') Ink 
+        each val in media
+          option(value= val selected= artist.medium == val ? true : undefined)= val
       p
     div.description
       label(for='description') Description of Artwork
       p
-      textarea(id='description' name='description' value=artist.description rows='7' cols='50') 
+      textarea(id='description' name='description' value=artist.description rows='7' cols='50')= artist.description 
       p
     div.submit
-      input(type='submit' value='Submit Artist')
+      input(type='submit' value='Submit')
